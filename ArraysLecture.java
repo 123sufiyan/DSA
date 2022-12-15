@@ -143,7 +143,7 @@ public static int binarySearch(int number[], int key) {
           int rightMax[] = new int[n];
           rightMax[n-1] = height[n-1];
           for(int i = n-2; i>=0; i--){
-            rightMax[i] = Math.max(height[i], leftMax[i+1]);
+            rightMax[i] = Math.max(height[i], rightMax[i+1]);
           }
           int trappedWater = 0;
           for(int i = 0 ;i<n; i++){
@@ -258,8 +258,8 @@ public static int binarySearch(int number[], int key) {
 
  // TRAPPING RAINWATER
 //  // does'nt work if highest bar is in the middle
-//  int array[] = {4,2,0,3,2,5};
-//  System.out.println(trappedRainwater(array));
+ int array[] = {4,2,0,3,2,5};
+ System.out.println(trappedRainwater(array));
 
 
 
