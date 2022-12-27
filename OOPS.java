@@ -51,10 +51,28 @@ public class OOPS {
                 hira.eat();
                 hira.hotBlood();
                 hira.breed();
+                System.out.println();
+                System.out.println();
+
+
+
+
+
+                //ABSTRACTION
+                Queen q = new Queen();
+                q.moves();
+                System.out.println();
+                System.out.println();
                 
 
 
+        //MULTIPLE INHERITENCE
 
+        Bear bhalu = new Bear();
+        bhalu.eats();
+        bhalu.sleeps();
+        System.out.println();
+        System.out.println();
 
     }}
 
@@ -132,13 +150,59 @@ class Animal{
 class Mammals extends Animal{
     void hotBlood(){
         System.out.println("mammals are hot blooded on line 123");
+        int legs;
     }
 }
 
 class Dog extends Mammals{
     void breed(){
         System.out.println("dog breed on line 129");
+
     }
 }
 
 
+
+
+//ABSTRACTION
+//INTERFACE
+
+
+interface ChessPlayer{      //created the blueprint for the chessplayer, moves will be not defined as it is abstracted
+    void moves();       
+}
+
+
+class Queen implements ChessPlayer{
+    public void moves(){        //only void will create default method, we need public for interface
+        System.out.println("left,right,up,down,digonal");
+    }}
+
+    class king implements ChessPlayer{
+        public void moves(){      
+            System.out.println("left,right,up,down,digonal(only 1 space)");
+        }}
+        class rook_elephant implements ChessPlayer{
+            public void moves(){        
+                System.out.println("left,right,up,down,");
+            }}
+
+
+            ///MULTIPLE INHERITENCE
+            interface Herbivore{
+                 void eats();
+            }
+            interface Carnivore{
+                void sleeps();
+            }
+
+            class Bear implements Herbivore , Carnivore{
+                public void eats() {
+                    System.out.println("herbiore prop");
+                }
+                public void sleeps() {
+                    System.out.println("carnivore prop");
+                }
+            }
+
+             
