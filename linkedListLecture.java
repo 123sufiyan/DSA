@@ -236,6 +236,69 @@ public static void addLast(int data) {
            prev.next = prev.next.next;
            return;
         }
+
+
+
+
+
+// -----------------------------------------
+        //  check if ll is pelindrome
+
+        //step 1 find mid node
+        // step 2 reverse 2nd half of ll
+        // step 3  check if 1st half = 2nd half
+       
+        public static Node findMid(Node head){  // slow fast is turtle hare approach
+            Node slow = head;
+            Node fast = head;
+            while(fast != null && fast.next != null){
+                slow = slow.next;  //+1
+                fast = fast.next.next;  //+2
+            }
+            return slow;  //slow is mid node
+        }
+
+        public static boolean isPelindrome() {
+            if( head == null || head.next == null){
+                return true;
+            }
+
+            //step 1
+            Node midNode = findMid(head);
+            
+            //step 2 reverse node from mid
+            Node prev = null;
+            Node curr = midNode;
+            Node next;
+            while(curr != null){
+                next = curr.next;
+                curr.next = prev;
+                prev = curr;
+                curr = next;
+
+            }
+            Node right = prev; //head for 2nd half
+            Node left = head;
+
+            //      THIS APPROACH WONT WORK, IT WILL SHOW TRUE BEFORE CHECKING FULL LINKEDLIST
+            // while(right != null ){
+            //     if(left.data == right.data){
+            //         return true;
+            //     }
+            //     left = left.next; 
+            //     right = right.next;
+            // }
+            // return false;
+
+            while(right != null ){  //better approach
+                if(left.data != right.data){
+                    return false;
+                }
+                left = left.next; 
+                right = right.next;
+            }
+            return true;
+        }
     public static void main(String[] args) {
 //         linkedListLecture ll = new linkedListLecture();  //check yourself why we need file name and not LinkedLIst
 //         ll.addFirst(2);
@@ -253,11 +316,11 @@ public static void addLast(int data) {
     
 
 linkedListLecture ll1 = new linkedListLecture();
-        ll1.addFirst(2);
-        ll1.addFirst(1);
-        ll1.addLast(3);
-        ll1.addLast(4);
-        ll1.print();
+        // ll1.addFirst(1);
+        // ll1.addFirst(2);
+        // ll1.addLast(1);
+        // ll1.addLast(2);
+        // ll1.print();
        
        
        
@@ -273,6 +336,17 @@ linkedListLecture ll1 = new linkedListLecture();
         // ll1.print();
        
 
-         ll1.delete_Nth_element(2);
-         ll1.print();
+        //  ll1.delete_Nth_element(2);
+        //  ll1.print();
+
+
+
+        //check pelindrome
+        linkedListLecture ll2 = new linkedListLecture();
+        ll2.addLast(1);
+        ll2.addLast(2);
+        ll2.addLast(2);
+        ll2.addLast(1);
+        ll2.print();
+        System.out.println(ll2.isPelindrome());
     }}
