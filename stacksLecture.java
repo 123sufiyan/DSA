@@ -107,6 +107,50 @@ public class stacksLecture {  //comment out class to use inbuilt java collection
     }
     return result.toString();
  }
+
+
+   public static void reverseStack(Stack<Integer> s) {
+         if(s.isEmpty()){
+            return;
+         }
+
+         int top = s.pop();
+         reverseStack(s);
+         pushAtBottom(s, top);
+
+
+   }
+
+      public static void printStack(Stack<Integer> s) {
+         while(!s.isEmpty()){
+            int print = s.pop();
+            System.out.print(print);
+         }
+         System.out.println();
+      }
+
+
+
+      public static void stockSpan(int stock[], int span[]) {
+            Stack<Integer> s = new Stack<>();
+            span[0] = 1; 
+            s.push(0);
+
+            for(int i = 1; i< stock.length; i++){
+               int currPrice = stock[i];
+
+               while(!s.isEmpty() && currPrice > stock[s.peek()]){
+                  s.pop();
+               }
+               if(s.isEmpty()){
+                  span[i] = i+1;  
+               }else{
+                  int prevHigh = s.peek();
+                  span[i] = i - prevHigh;
+               }
+               s.push(i);
+            }
+      }
     public static void main(String[] args) {
         
 
@@ -124,10 +168,12 @@ public class stacksLecture {  //comment out class to use inbuilt java collection
         //  }
         
 
-        // Stack<Integer> s = new Stack<>();
-        // s.add(1);
-        // s.add(2);
-        // s.add(3);
+        Stack<Integer> s = new Stack<>();
+        s.add(1);
+        s.add(2);
+        s.add(3);
+      //   printStack(s);
+        //optput is 3  2  1
         // pushAtBottom(s, 4);
 
         // while(!s.isEmpty()){
@@ -135,8 +181,24 @@ public class stacksLecture {  //comment out class to use inbuilt java collection
         //     s.pop();
         // }
  
-        //reverse string
-        String code = "abc";
-        String rsult = reverseString(code);
-        System.out.println(rsult);
+      //   //reverse string
+      //   String code = "abc";
+      //   String rsult = reverseString(code);
+      //   System.out.println(rsult);
+        
+      
+      // //reverse stack
+      // reverseStack(s);
+      // printStack(s);
+
+
+
+      //Stock Span problem
+      int stock[] = {100, 80, 60, 70, 60, 85, 100};
+      int span[] = new int[stock.length];
+      stockSpan(stock, span);
+
+      for(int i = 0; i<span.length; i++){
+         System.out.println(span[i] + " ");
+      }
 }}
