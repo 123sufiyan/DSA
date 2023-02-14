@@ -193,12 +193,41 @@ public class stacksLecture {  //comment out class to use inbuilt java collection
 
 
 
-      //Stock Span problem
-      int stock[] = {100, 80, 60, 70, 60, 85, 100};
-      int span[] = new int[stock.length];
-      stockSpan(stock, span);
+      // //Stock Span problem
+      // int stock[] = {100, 80, 60, 70, 60, 85, 100};
+      // int span[] = new int[stock.length];
+      // stockSpan(stock, span);
 
-      for(int i = 0; i<span.length; i++){
-         System.out.println(span[i] + " ");
-      }
-}}
+      // for(int i = 0; i<span.length; i++){
+      //    System.out.println(span[i] + " ");
+      // int max = Integer.MIN_VALUE;
+      // // int min = Integer.MAX_VALUE;
+      // }
+
+
+         // Next greater Element
+         int arr[] = {6, 8, 0, 1, 3};
+         Stack<Integer> s1 = new Stack<>();
+         int nxtGreater[] = new int[arr.length];
+         for(int i = arr.length-1; i >=0; i-- ){
+            //Step1
+            while(!s1.isEmpty() &&  arr[s1.peek()] <= arr[i]){
+               s1.pop();
+            }
+
+            //Step 2
+            if(s1.isEmpty()){
+               nxtGreater[i] = -1;
+            }else{
+               nxtGreater[i] = arr[s1.peek()];
+            }
+
+            //Step 3
+            s1.push(i);
+         }
+
+         for(int i = 0; i <  nxtGreater.length; i++){
+            System.out.print(nxtGreater[i] + " ");
+         } System.out.println();
+   }
+}
