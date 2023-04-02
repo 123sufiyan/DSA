@@ -37,7 +37,7 @@ public class divideAndConquer {
                 temp[k] = arr[j];
                 k++; j++;
             }
-            //k++(it is done in both teh if loops, so we can write this outside)
+            //k++(it is done in both the if loops, so we can write this outside)
         }
         // both array might no be of ame length, there for leftover arrays
 
