@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Stack;
-public class stacksLecture {  //comment out class to use inbuilt java collection framework for solving questions
+public class stacksLecture {  //comment out class StackB to use inbuilt java collection framework for solving questions
 
 //     static class StackB{  //Stackb name caue serious confusion of 2 stack named class
       
